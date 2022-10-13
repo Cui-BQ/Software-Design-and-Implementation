@@ -1,0 +1,10 @@
+# Test ListChildren by using Illegal parentNode. e.g. parentNode = null or not exist
+
+# Create graphs
+CreateGraph graph
+
+# null lists children
+ListChildren graph null
+
+# new lists children
+ListChildren graph new

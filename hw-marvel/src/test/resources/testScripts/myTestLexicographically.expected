@@ -1,0 +1,11 @@
+loaded graph myTest
+
+#Two paths, one via ABC, other one via AB
+path from A to B:
+A to B via ABC
+
+#Two paths, A -> (ABC) -> B -> (BCX) -> X
+#        Or A -> (ABC) -> C -> (BCX) -> X
+path from A to X:
+A to B via ABC
+B to X via BCX

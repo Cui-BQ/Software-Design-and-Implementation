@@ -1,0 +1,16 @@
+# Test add Illegal Edges, e.g. parentNode/childNode/label = null or not exist
+
+# Create a graph
+CreateGraph graph1
+
+# Add node n1 and n2
+AddNode graph1 n1
+AddNode graph1 n2
+
+# Add Illegal edges
+AddEdge graph1 null null null
+AddEdge graph1 n1 n2 null
+AddEdge graph1 n1 null n1-null
+AddEdge graph1 null n1 null-n1
+AddEdge graph1 n1 new n1-new
+AddEdge graph1 new null new-null

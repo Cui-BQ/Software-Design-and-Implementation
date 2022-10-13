@@ -1,0 +1,13 @@
+# create a new empty graph object and test its property
+
+# Create a graph
+CreateGraph emptyGraph
+
+# List its node
+ListNodes emptyGraph
+
+# List child for an non-exist node
+ListChildren emptyGraph n1
+
+# Check contains() method for empty graph
+Contains emptyGraph n1

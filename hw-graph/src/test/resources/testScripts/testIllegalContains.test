@@ -1,0 +1,8 @@
+# Create graphs
+CreateGraph graph
+
+# Add 3 node to graph
+AddNode graph n0
+
+# Check contains
+Contains graph null

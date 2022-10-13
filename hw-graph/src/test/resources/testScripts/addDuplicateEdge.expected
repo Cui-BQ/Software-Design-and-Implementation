@@ -1,0 +1,16 @@
+# Test addEdge duplicate edge
+
+# Create a graph
+created graph graph1
+
+# Add 2 nodes
+added node n1 to graph1
+added node n2 to graph1
+
+# Add different edges between n1 and n2.
+added edge e1 from n1 to n2 in graph1
+added edge e2 from n1 to n2 in graph1
+
+# Add duplicate edges between n1 and n2.
+failed to add edge e1 from n1 to n2 in graph1
+failed to add edge e2 from n1 to n2 in graph1

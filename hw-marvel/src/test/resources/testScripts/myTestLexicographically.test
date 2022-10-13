@@ -1,0 +1,8 @@
+LoadGraph myTest myTest.tsv
+
+#Two paths, one via ABC, other one via AB
+FindPath myTest A B
+
+#Two paths, A -> (ABC) -> B -> (BCX) -> X
+#        Or A -> (ABC) -> C -> (BCX) -> X
+FindPath myTest A X

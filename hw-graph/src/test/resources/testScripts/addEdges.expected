@@ -1,0 +1,37 @@
+# Test addEdge method between multiple nodes in a single graph
+
+# Create a graph
+created graph graph1
+
+# Add different nodes
+added node n1 to graph1
+added node n2 to graph1
+added node n3 to graph1
+
+# Add different edges between two fixed nodes.
+added edge e1 from n1 to n2 in graph1
+added edge e2 from n1 to n2 in graph1
+
+# Add the same edges in reverse order.
+added edge e1 from n2 to n1 in graph1
+added edge e2 from n2 to n1 in graph1
+
+# Add duplicated edges.
+failed to add edge e1 from n1 to n2 in graph1
+failed to add edge e2 from n2 to n1 in graph1
+
+# Add a edge from the node to itself.
+added edge e3 from n1 to n1 in graph1
+
+# Add a edge between non-exist nodes.
+Exception: java.lang.IllegalArgumentException: invalid params
+Exception: java.lang.IllegalArgumentException: invalid params
+Exception: java.lang.IllegalArgumentException: invalid params
+
+# Add more edges between those nodes.
+added edge e4 from n1 to n3 in graph1
+added edge e1 from n3 to n2 in graph1
+
+# List child for n1
+the children of n1 in graph1 are: n1(e3) n2(e1) n2(e2) n3(e4)
+

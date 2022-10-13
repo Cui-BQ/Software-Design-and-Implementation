@@ -1,0 +1,14 @@
+created graph graph1
+
+added node n1 to graph1
+added node n2 to graph1
+
+#FindPath n1 and n3
+unknown node n3
+
+#FindPath n0 and n2
+unknown node n0
+
+#FindPath n1 and n3
+unknown node n0
+unknown node n3

@@ -1,0 +1,24 @@
+## CSE 331 hw-setup Questions
+## Part 6
+
+1. Why did Fibonacci fail the testThrowsIllegalArgumentException< test? What (if anything) did
+you have to do to fix it? If you did not have to change anything to fix this issue, explain why.
+
+    The getFibTerm() method treated 0 as a negative number, but the FibonacciTest didn't.
+    Change the precondition for the IllegalArgumentException from n <= 0 to n < 0.
+
+2. Why did Fibonacci fail the testBaseCase test? What (if anything) did you have to do to fix
+it? If you did not have to change anything to fix this issue, explain why.
+
+    Didn't change anything, because I already fixed precondition for the IllegalArgumentException.
+    So, getFibTerm() returns 1 when 0 <= n <= 2.
+
+3.Why did Fibonacci fail the testInductiveCase test? What (if anything) did you have to do to
+fix it? If you did not have to change anything to fix this issue, explain why.
+
+    getFibTerm(2) expected:<2> but was:<1>, the getFibTerm() method returned 1 if 0 <= n <= 2.
+    So let it return 1 when 0 <= n <= 1.
+    And return getFibTerm(n - 1) + getFibTerm(n - 2) when 1 < n.
+
+
+

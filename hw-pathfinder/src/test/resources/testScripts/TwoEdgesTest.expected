@@ -1,0 +1,16 @@
+created graph graph1
+
+added node n1 to graph1
+added node n2 to graph1
+added node n3 to graph1
+
+added edge 1.200 from n1 to n2 in graph1
+added edge 0.120 from n1 to n2 in graph1
+
+added edge 2.300 from n2 to n3 in graph1
+added edge 0.230 from n2 to n3 in graph1
+
+path from n1 to n3:
+n1 to n2 with weight 0.120
+n2 to n3 with weight 0.230
+total cost: 0.350

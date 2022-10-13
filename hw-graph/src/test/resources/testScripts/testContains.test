@@ -1,0 +1,12 @@
+# Create graphs
+CreateGraph graph
+
+# Add 3 node to graph
+AddNode graph n0
+AddNode graph n1
+AddNode graph n2
+
+# Check contains
+Contains graph n0
+Contains graph n1
+Contains graph n2

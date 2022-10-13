@@ -1,0 +1,24 @@
+
+#BuildingPicker {
+    text-align: center;
+}
+
+#PathFinder {
+    margin: 10px;
+    text-align: center;
+}
+
+#Map {
+    text-align: center;
+}
+
+
+
+/* Centers the "Connect the Dots!" text, which is in a <p> (paragraph) tag inside the <App /> component, and has an
+ID of "app-title". Also makes the text bigger, bold, and adds some space around the title. */
+#app-title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px;
+}

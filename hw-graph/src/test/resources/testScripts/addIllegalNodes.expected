@@ -1,0 +1,7 @@
+# Test add Illegal node, e.g. node = null
+
+# Create a graph
+created graph graph1
+
+# Add null
+Exception: java.lang.IllegalArgumentException: node is null

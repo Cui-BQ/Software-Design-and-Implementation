@@ -1,0 +1,10 @@
+# Add one node and ListNode
+
+# Create a graph
+created graph graph1
+
+# Add node n1
+added node n1 to graph1
+
+# graph1 lists nodes
+graph1 contains: n1

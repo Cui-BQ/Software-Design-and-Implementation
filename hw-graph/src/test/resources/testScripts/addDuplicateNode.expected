@@ -1,0 +1,14 @@
+# Test add duplicate node
+
+# Create a graph
+created graph graph1
+
+# Add different nodes
+added node n1 to graph1
+added node n2 to graph1
+
+# Add a duplicate nodes
+failed to add node n2 to graph1
+
+# List its node
+graph1 contains: n1 n2

@@ -1,0 +1,13 @@
+CreateGraph graph1
+
+AddNode graph1 n1
+AddNode graph1 n2
+
+#FindPath n1 and n3
+FindPath graph1 n1 n3
+
+#FindPath n0 and n2
+FindPath graph1 n0 n2
+
+#FindPath n1 and n3
+FindPath graph1 n0 n3

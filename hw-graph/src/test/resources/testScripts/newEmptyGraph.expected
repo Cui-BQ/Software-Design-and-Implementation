@@ -1,0 +1,13 @@
+# create a new empty graph object and test its property
+
+# Create a graph
+created graph emptyGraph
+
+# List its node
+emptyGraph contains:
+
+# List child for an non-exist node
+Exception: java.lang.IllegalArgumentException: Invalid parameter
+
+# Check contains() method for empty graph
+emptyGraph contains n1: false

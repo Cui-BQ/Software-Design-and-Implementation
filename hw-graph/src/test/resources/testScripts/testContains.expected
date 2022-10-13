@@ -1,0 +1,12 @@
+# Create graphs
+created graph graph
+
+# Add 3 node to graph
+added node n0 to graph
+added node n1 to graph
+added node n2 to graph
+
+# Check contains
+graph contains n0: true
+graph contains n1: true
+graph contains n2: true

@@ -1,0 +1,97 @@
+## CSE 331 hw-graph Part 1 Questions
+
+## Section 1
+###########################################################################
+
+1. Write an AF and RI for IntQueue1 and IntQueue2.
+
+    ### IntQueue1
+
+    Abstraction Function:
+        For a given IntQueue1 q, the queue contained in q.entries.
+        The Nth Integer from the front of the Queue = q.entries[N-1],
+        where the 1st\least-recently-added Integer is at the front\q.entries[0],
+        q is empty if q.entries = [].
+
+    Representation Invariant:
+        entries != null
+        entries[n0, ... , nk] != null, where nk = entries.size - 1.
+
+
+    ### IntQueue2
+
+    Abstraction Function:
+        For a given IntQueue2 q, the queue contained in q.entries.
+        "# of integers inside q" is synonymous with q.size,
+        "index of the 1st Integer of q" is synonymous with q.front,
+        The Nth Integer from the front of the Queue = q.entries[(q.front+N-1)/q.entries.length],
+        q is empty if q.entries = [].
+
+    Representation Invariant:
+        entries != null
+        entries[front, ... , front+size-1] != null
+        front <= entries.length - 1 && size <= entries.length
+
+
+2. Group the snapshots of IntQueue2's internal state into groups that have the same abstract state.
+    group 1: a, d, g
+    group 2: b, h
+    group 3: c, f
+
+
+3. For each signature below, state and justify in 1-2 sentences (per part) whether the method or constructor
+could possibly expose the representation, given the information available. Explain any assumptions you made.
+
+    a. `public int solveEquations(int x, int y, int z)`
+            No expose possible, the return type is int.
+
+    b. `public String[] decode(boolean slowly)`
+            could possibly expose, the client can call it because the method is public.
+            And it returns a String[], so client can modified the returned string.
+
+    c. `private Date myBirthday()`
+            could possibly expose, if this Class also has a public method that returns a Data Object,
+            then it might return this.myBirthday(), so the client can modified the returned Date.
+
+    d. `public String toString()`
+            No expose possible, the returned string is representing the status of the current object.
+
+    e. `public Iterator<Integer> elements()`
+            could possibly expose, this Iterator might directly refer to the data from the data fields.
+
+    f. `public Deck(List<Card> cards)`
+            could possibly expose, if the constructor might just simply use an "=" to set its data fields.
+
+
+
+## Section 2
+###########################################################################
+
+Briefly explain why you included the operations you did and why you feel they are a sufficient
+interface to a graph. If your design includes multiple classes or interfaces, explain why you
+included each one; if not, explain whether you considered additional classes and why you decided
+not to include them.
+    A constructor to create new graph.
+    addNode/addEdge methods are the most basic functions for a graph, adding new node/edge.
+    ListNodes/ListChildren methods can tell the basic status about the graph/node.
+    contains method can tell if the node is already exist in the graph or not.
+
+    Inner Class node:
+        node is a part of graph, this class will store the node data.
+    Inner Class edge:
+        it's also a part of graph that to store the label and child node.
+    I make them public so the client will have more freedom to operate the graph.
+
+
+## Section 3
+###########################################################################
+
+What was your testing strategy for this assignment? How do your script tests and JUnit tests
+differ from each other (if they do), and why?
+    Similar to the 0, 1, 2 case analysis, use three or four objects for each test, and try to use
+    different combinations to test most of the cases.
+    The script tests are more focusing on small pieces/details, while JUnit tests are testing the whole
+    program.
+
+
+

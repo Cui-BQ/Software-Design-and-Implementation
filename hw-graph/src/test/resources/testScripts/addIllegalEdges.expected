@@ -1,0 +1,16 @@
+# Test add Illegal Edges, e.g. parentNode/childNode/label = null or not exist
+
+# Create a graph
+created graph graph1
+
+# Add node n1 and n2
+added node n1 to graph1
+added node n2 to graph1
+
+# Add Illegal edges
+Exception: java.lang.IllegalArgumentException: invalid params
+Exception: java.lang.IllegalArgumentException: invalid params
+Exception: java.lang.IllegalArgumentException: invalid params
+Exception: java.lang.IllegalArgumentException: invalid params
+Exception: java.lang.IllegalArgumentException: invalid params
+Exception: java.lang.IllegalArgumentException: invalid params

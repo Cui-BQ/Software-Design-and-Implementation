@@ -1,0 +1,37 @@
+# Test addEdge method between multiple nodes in a single graph
+
+# Create a graph
+CreateGraph graph1
+
+# Add different nodes
+AddNode graph1 n1
+AddNode graph1 n2
+AddNode graph1 n3
+
+# Add different edges between two fixed nodes.
+AddEdge graph1 n1 n2 e1
+AddEdge graph1 n1 n2 e2
+
+# Add the same edges in reverse order.
+AddEdge graph1 n2 n1 e1
+AddEdge graph1 n2 n1 e2
+
+# Add duplicated edges.
+AddEdge graph1 n1 n2 e1
+AddEdge graph1 n2 n1 e2
+
+# Add a edge from the node to itself.
+AddEdge graph1 n1 n1 e3
+
+# Add a edge between non-exist nodes.
+AddEdge graph1 non n1 e10
+AddEdge graph1 n2 non e10
+AddEdge graph1 non non e10
+
+# Add more edges between those nodes.
+AddEdge graph1 n1 n3 e4
+AddEdge graph1 n3 n2 e1
+
+# List child for n1
+ListChildren graph1 n1
+

@@ -1,0 +1,22 @@
+# List node for graphs that have 0, 1 and 2 nodes.
+
+# Create graphs
+created graph graph0
+created graph graph1
+created graph graph2
+
+# Add 1 node to graph1
+added node n1 to graph1
+
+# Add 2 nodes to graph2
+added node n1 to graph2
+added node n2 to graph2
+
+# graph0 lists nodes
+graph0 contains:
+
+# graph1 lists nodes
+graph1 contains: n1
+
+# graph2 lists nodes
+graph2 contains: n1 n2

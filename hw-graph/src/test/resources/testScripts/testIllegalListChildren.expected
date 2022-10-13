@@ -1,0 +1,10 @@
+# Test ListChildren by using Illegal parentNode. e.g. parentNode = null or not exist
+
+# Create graphs
+created graph graph
+
+# null lists children
+Exception: java.lang.IllegalArgumentException: node is null
+
+# new lists children
+Exception: java.lang.IllegalArgumentException: Invalid parameter

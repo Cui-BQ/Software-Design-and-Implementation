@@ -1,0 +1,134 @@
+## CSE 331 hw-poly Questions
+## Part 0
+###########################################################################
+
+1. Multiplication Pseudocode
+    r = p * q:
+    set r = 0
+    {Inv: r = 0 + p0*q0 + p0*q1 + ... + p0*qi-1 +
+                  p1*q0 + p1*q1 + ... + p1*qi-1 +
+                  pj-1*q0 + pj-1*q2 + ... pj-1*qi-1 where p#,q# is the #th term in p,q}
+    foreach term, tp, in p:
+        foreach term, tq in q:
+            insert tp*tq into r as a new term.
+
+2. Division Pseudocode
+    r = p / q:
+    set p_t = p by making a term-by-term copy of all terms in p to p_t
+    set r = 0
+    set int p_t_degree = 0
+    { Inv: p_t = p_t - the term with lowest degree in r * q }
+    while the highest degree in p_t >= the highest degree in q {
+        p_t_degree = highest degree in p_t
+        insert (the term with highest degree in p_t / the term with highest degree in q) into r as a new term.
+        replace p_t with (p_t - the term with lowest degree in r * q)
+        if (c_t_degree == highest degree in p_t){
+            break;
+        }
+    }
+
+3. Division Example: (x^3+x-1) / (x+1) = x^2-x+2
+    p = (x^3+x-1)
+    q = (x+1)
+    set p_t = copy of p = (x^3+x-1)
+    r = 0
+    int p_t_degree = 0
+    while the highest degree in p_t >= the highest degree in q {
+        Iteration 1, the term with highest degree in p_t is x^3, the term with highest degree in q is x
+            p_t_degree = 3
+            r = 0 + x^3/x = x^2
+            the term with lowest degree in r = x^2
+            p_t = (x^3+x-1) - x^2*(x+1) = -x^2+x-1
+            [c_t_degree == highest degree in p_t] false, c_t_degree = 3, highest degree in p_t is 2
+        Iteration 2, the term with highest degree in p_t is -x^2, the term with highest degree in q is x
+            p_t_degree = 2
+            r = x^2 + -x^2/x = x^2-x
+            the term with lowest degree in r = -x
+            p_t = -x^2+x-1 - (-x)*(x+1) = 2x-1
+            [c_t_degree == highest degree in p_t] false, c_t_degree = 2, highest degree in p_t is 1
+        Iteration 3, the term with highest degree in p_t is 2x, the term with highest degree in q is x
+            p_t_degree = 1
+            r = x^2-x + 2x/x = x^2-x+2
+            the term with lowest degree in r = 2
+            p_t = 2x-1 - 2*(x+1) = -3
+            [c_t_degree == highest degree in p_t] false, c_t_degree = 1, highest degree in p_t is 0
+        Iteration 4, the term with highest degree in p_t is -3, the term with highest degree in q is x
+            Exit, p_t ! >= the highest degree in q.
+    }
+    We are done, r = x^2-x+2
+
+
+
+## Part 1
+###########################################################################
+
+1. Weakened Rep Invariant
+    RatNum(int n, int d)
+        No longer to call gcd(n, d), since reduced form is not required.
+        This change can saves some runtime, but makes harder for future operations (e.g equals, toString).
+    checkRep()
+        Just need to check if (denom >= 0).
+        Saves some constance runtime, but makes the representation invariant weaker.
+    hashCode()
+        need to call gcd and make it to reduce form.
+        No advantages but spent more runtime.
+    equals(Object obj)
+        Instant to check their numer and denom, just to check if this - rn = 0.
+        No advantages but spent more runtime.
+    toString()
+        need to call gcd and make it to reduce form.
+        No advantages but spent more runtime.
+
+2. Alternate add, sub, mul, div
+    This will make rep exposure, and change the value of "this" without a @spec.effects.
+    Also this RatNum Class will become "mutable".
+
+3. Constructor checkReps
+    Because other methods are immutable. They didn't change the current state of RatNum but make new RatNums.
+    So, it calls checkReps only at the end of the constructors.
+
+## Part 2
+###########################################################################
+
+1. Calls to checkRep in RatTerm
+    Only at the end of the constructors, same reason as the way to call checkRep() in the RatNum Class.
+
+2. Weakened Rep Invariant
+    RatTerm(RatNum c, int e)
+        No need to check if the coeff = 0.
+        Save some constance runtime, harder for future operations (e.g equals, toString).
+    checkRep()
+        Just need to check if (coeff != null).
+        Saves some constance runtime, but makes the representation invariant weaker.
+    hashCode()
+        need to change expt to a fixed number(e.g. 0) if "this equals 0", so all 0 Terms can have the same hashcode.
+        No advantages but spent more runtime.
+    equals(Object obj)
+        return true if this.coeff == arg,coeff == 0.
+        No advantages but spent more runtime.
+    toString()
+        return "0" if this.coeff equal 0.
+        No advantages but spent more runtime.
+
+3. Alternate Rep Invariant
+    RatTerm(RatNum c, int e)
+        Need set expt = 0 if c equals NaN.
+        No advantages for this current RatTerm Class. And waste some runtime.
+
+4. Preferred Invariants
+    Only coeff.equals(RatNum.ZERO) ⇒ expt = 0
+    Because It can make things become easier, and there is no advantages for another Invariant.
+
+## Part 3
+###########################################################################
+
+1. Calls to checkRep in RatPoly
+    I didn't add any new checkRep() in my code.
+    Because all other methods are immutable, they only create new RatPoly object.
+
+2. Alternate Representation
+    The advantage is it's more straightforward\fast to lookup data, but make it harder to implement the RatPoly class.
+    Use a list of RatTerms would be better because it makes things(e.g storing, sorting.) more easier.
+
+
+

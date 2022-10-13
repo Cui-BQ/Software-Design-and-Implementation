@@ -1,0 +1,3 @@
+LoadGraph myTest myTest.tsv
+
+FindPath myTest A F

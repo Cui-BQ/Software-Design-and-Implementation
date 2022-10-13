@@ -1,0 +1,7 @@
+# Test add Illegal node, e.g. node = null
+
+# Create a graph
+CreateGraph graph1
+
+# Add null
+AddNode graph1 null

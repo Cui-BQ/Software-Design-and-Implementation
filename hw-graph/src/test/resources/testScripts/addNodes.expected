@@ -1,0 +1,24 @@
+# Test addNode method in a single graph
+
+# Create a graph
+created graph graph1
+
+# Add different nodes
+added node n1 to graph1
+added node n2 to graph1
+added node n3 to graph1
+
+# Add a duplicated node
+failed to add node n1 to graph1
+
+# List its node
+graph1 contains: n1 n2 n3
+
+# List child for n1
+the children of n1 in graph1 are:
+
+# Check contains() method.
+graph1 contains n1: true
+graph1 contains n4: false
+
+

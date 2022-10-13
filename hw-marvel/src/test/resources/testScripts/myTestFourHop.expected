@@ -1,0 +1,7 @@
+loaded graph myTest
+
+path from A to F:
+A to E via AE
+E to D via DE
+D to G via DG
+G to F via GF

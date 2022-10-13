@@ -1,0 +1,25 @@
+# List children for bides that have 0, 1 and 2 children node.
+
+# Create graphs
+CreateGraph graph
+
+# Add 3 node to graph
+AddNode graph n0
+AddNode graph n1
+AddNode graph n2
+
+# Add one child for n1
+AddEdge graph n1 n2 e2
+
+# Add two children for n2
+AddEdge graph n2 n0 e0
+AddEdge graph n2 n1 e1
+
+# n0 lists children
+ListChildren graph n0
+
+# n1 lists children
+ListChildren graph n1
+
+# n2 lists children
+ListChildren graph n2
